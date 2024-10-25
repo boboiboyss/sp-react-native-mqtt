@@ -4,50 +4,57 @@ def safeExtGet(prop, fallback) {
 
 buildscript {
     ext {
-        kotlin_version = '1.6.10' // Ganti dengan versi terbaru
+        kotlin_version = '1.6.10' // Ganti dengan versi terbaru jika perlu
     }
-  repositories {
-    google()
-      mavenCentral() 
-  }
-
-  dependencies {
-    classpath 'com.android.tools.build:gradle:6.7'
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-  }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.3.0' // Versi terbaru
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-  compileSdkVersion safeExtGet('compileSdkVersion', 33)
-  buildToolsVersion safeExtGet('buildToolsVersion', '28.0.3')
+    compileSdkVersion safeExtGet('compileSdkVersion', 33)
+    buildToolsVersion safeExtGet('buildToolsVersion', '33.0.0') // Ganti dengan versi terbaru jika perlu
 
-  defaultConfig {
-    minSdkVersion safeExtGet('minSdkVersion', 16)
-    targetSdkVersion safeExtGet('targetSdkVersion', 26)
-    versionCode 1
-    versionName "1.0"
-  }
-  lintOptions {
-    abortOnError false
-  }
+    defaultConfig {
+        minSdkVersion safeExtGet('minSdkVersion', 16)
+        targetSdkVersion safeExtGet('targetSdkVersion', 33) // Ganti dengan versi terbaru
+        versionCode 1
+        versionName "1.0"
+    }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 repositories {
-  mavenCentral()
-  maven {
-      url "https://repo.eclipse.org/content/repositories/paho-releases/"
-  }
+    mavenCentral()
+    google()
+    maven {
+        url "https://repo.eclipse.org/content/repositories/paho-releases/"
+    }
 }
 
 dependencies {
-  implementation 'com.facebook.react:react-native:+'
-  implementation('org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0') {
-      exclude module: 'support-v4'
-  }
-  implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
-  implementation 'org.bouncycastle:bcprov-jdk15on:1.54'
-
+    implementation 'com.facebook.react:react-native:+'
+    implementation('org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0') {
+        exclude module: 'support-v4'
+    }
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.54'
+    // Menambahkan dependensi lainnya yang mungkin hilang
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version' // Pastikan versi ini sesuai
+    implementation 'org.ow2.asm:asm:6.0'
+    implementation 'org.ow2.asm:asm-analysis:6.0'
+    implementation 'org.ow2.asm:asm-commons:6.0'
+    implementation 'org.ow2.asm:asm-util:6.0'
+    implementation 'net.sf.jopt-simple:jopt-simple:4.9'
+    implementation 'net.sf.proguard:proguard-gradle:6.0.3'
+    implementation 'com.squareup:javawriter:2.5.0'
 }
-
