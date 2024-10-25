@@ -11,7 +11,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.0' // Versi terbaru
+        classpath 'com.android.tools.build:gradle:7.4.0' // Versi terbaru
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -47,14 +47,12 @@ dependencies {
         exclude module: 'support-v4'
     }
     implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
-    implementation 'org.bouncycastle:bcprov-jdk15on:1.54'
-    // Menambahkan dependensi lainnya yang mungkin hilang
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version' // Pastikan versi ini sesuai
-    implementation 'org.ow2.asm:asm:6.0'
-    implementation 'org.ow2.asm:asm-analysis:6.0'
-    implementation 'org.ow2.asm:asm-commons:6.0'
-    implementation 'org.ow2.asm:asm-util:6.0'
-    implementation 'net.sf.jopt-simple:jopt-simple:4.9'
-    implementation 'net.sf.proguard:proguard-gradle:6.0.3'
-    implementation 'com.squareup:javawriter:2.5.0'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.68' // Versi terbaru
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // Menggunakan kotlin-stdlib terbaru
+    implementation 'org.ow2.asm:asm:9.2' // Versi terbaru
+    implementation 'org.ow2.asm:asm-analysis:9.2' // Versi terbaru
+    implementation 'org.ow2.asm:asm-commons:9.2' // Versi terbaru
+    implementation 'org.ow2.asm:asm-util:9.2' // Versi terbaru
+    implementation 'net.jopt-simple:jopt-simple:5.0.3' // Versi terbaru
+    implementation 'com.squareup:javapoet:1.13.0' // Versi terbaru
 }
