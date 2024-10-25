@@ -3,6 +3,9 @@ def safeExtGet(prop, fallback) {
 }
 
 buildscript {
+    ext {
+        kotlin_version = '1.6.10' // Ganti dengan versi terbaru
+    }
   repositories {
     google()
       mavenCentral() 
@@ -10,6 +13,7 @@ buildscript {
 
   dependencies {
     classpath 'com.android.tools.build:gradle:6.7'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
   }
 }
 
